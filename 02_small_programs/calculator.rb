@@ -1,3 +1,8 @@
+#srequire 'pry'
+require 'yaml'
+
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
 def prompt(message)
   puts "=> #{message}"
 end
@@ -7,13 +12,13 @@ def valid_number?(number)
   number.to_i != 0
 end
 
-prompt("Welcome to the calculator! What's your name?")
+prompt(MESSAGES['welcome'])
 
 name = ''
 loop do
   name = gets.chomp
   break unless name.empty?
-  prompt("Make sure to use a valid name.")
+  prompt(MESSAGES['valid_name'])
 end
 
 prompt("Hello #{name}")
@@ -21,37 +26,29 @@ prompt("Hello #{name}")
 loop do
   number1 = ''
   loop do
-    prompt("What's the first number")
+    prompt(MESSAGES['first_number'])
     number1 = gets.chomp
 
     break if valid_number?(number1)
-    prompt("Hmmm... that doesn't look like a valid number")
+    prompt(MESSAGES['not_valid_num'])
   end
 
   number2 = ''
   loop do
-    prompt("What's the second number")
+    prompt(MESSAGES['second_number'])
     number2 = gets.chomp
 
     break if valid_number?(number2)
-    prompt("Hmmm... that doesn't look like a valid number")
+    prompt(MESSAGES['not_valid_num'])
   end
 
-  operator_prompt = <<-MSG
-    What operation would you like to perform?
-    1) add
-    2) subtract
-    3) multiply
-    4) divide
-  MSG
-
-  prompt(operator_prompt)
+  prompt(MESSAGES['operator'])
 
   operator = ''
   loop do
     operator = gets.chomp
-    break if %w(1, 2, 3, 4).include?(operator)
-    prompt("Must use 1, 2, 3 or 4")
+    break if %w(1 2 3 4).include?(operator)
+    prompt(MESSAGES['four_options'])
   end
 
   result = case operator
@@ -67,9 +64,9 @@ loop do
 
   puts result
 
-  prompt('Do you want to perform another calculation? (Y for yes)')
+  prompt(MESSAGES['another_calculation'])
   answer = gets.chomp
   break unless answer.downcase.start_with?('y')
 end
 
-prompt('Thank you for using the calculator. Good bye')
+prompt(MESSAGES['thanks'])
