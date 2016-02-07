@@ -32,11 +32,8 @@ loop do
 
   monthly_rate = (annual_rate.to_f / 100) / 12
   months = years.to_i * 12
-
-
-
-  monthly_payment = amount.to_f * 
-                    (monthly_rate * (1 + monthly_rate)**months) / 
+  monthly_payment = amount.to_f *
+                    (monthly_rate * (1 + monthly_rate)**months) /
                     ((1 + monthly_rate)**months - 1)
 
   prompt("Your monthly payment is: #{format('%02.2f', monthly_payment)}")
