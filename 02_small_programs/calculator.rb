@@ -2,8 +2,14 @@
 require 'yaml'
 
 MESSAGES = YAML.load_file('calculator_messages.yml')
+LANGUAGE = 'es'
 
-def prompt(message)
+def messages(message, lang='en')
+  MESSAGES[lang][message]
+end
+
+def prompt(key)
+  message = messages(key, LANGUAGE)
   puts "=> #{message}"
 end
 
@@ -12,13 +18,14 @@ def valid_number?(number)
   number.to_i != 0
 end
 
-prompt(MESSAGES['welcome'])
+
+prompt('welcome')
 
 name = ''
 loop do
   name = gets.chomp
   break unless name.empty?
-  prompt(MESSAGES['valid_name'])
+  prompt('valid_name')
 end
 
 prompt("Hello #{name}")
@@ -26,29 +33,29 @@ prompt("Hello #{name}")
 loop do
   number1 = ''
   loop do
-    prompt(MESSAGES['first_number'])
+    prompt('first_number')
     number1 = gets.chomp
 
     break if valid_number?(number1)
-    prompt(MESSAGES['not_valid_num'])
+    prompt('not_valid_num')
   end
 
   number2 = ''
   loop do
-    prompt(MESSAGES['second_number'])
+    prompt('second_number')
     number2 = gets.chomp
 
     break if valid_number?(number2)
-    prompt(MESSAGES['not_valid_num'])
+    prompt('not_valid_num')
   end
 
-  prompt(MESSAGES['operator'])
+  prompt('operator')
 
   operator = ''
   loop do
     operator = gets.chomp
     break if %w(1 2 3 4).include?(operator)
-    prompt(MESSAGES['four_options'])
+    prompt('four_options')
   end
 
   result = case operator
@@ -64,9 +71,9 @@ loop do
 
   puts result
 
-  prompt(MESSAGES['another_calculation'])
+  prompt('another_calculation')
   answer = gets.chomp
   break unless answer.downcase.start_with?('y')
 end
 
-prompt(MESSAGES['thanks'])
+prompt('thanks')

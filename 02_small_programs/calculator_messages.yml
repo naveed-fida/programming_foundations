@@ -1,11 +1,23 @@
+en:
+  welcome: "Welcome to the calculator! What's your name?"
+  valid_name: 'Make sure to use a valid name.'
+  first_number: "What's the first number?"
+  not_valid_num: "Hmmm... that doesn't look like a valid number"
+  second_number: "What's the second number?"
+  operator:   "What operation would you like to perform? 1) add 2) subtract 3) multiply 4) divide"
+  four_options: "Must use 1, 2, 3, or 4"
 
-welcome: "Welcome to the calculator! What's your name?"
-valid_name: 'Make sure to use a valid name.'
-first_number: "What's the first number?"
-not_valid_num: "Hmmm... that doesn't look like a valid number"
-second_number: "What's the second number?"
-operator:   "What operation would you like to perform? 1) add 2) subtract 3) multiply 4) divide"
-four_options: "Must use 1, 2, 3, or 4"
+  another_calculation: 'Do you want to perform another calculation? (Y for yes)'
+  thanks: 'Thank you for using the calculator. Good bye'
 
-another_calculation: 'Do you want to perform another calculation? (Y for yes)'
-thanks: 'Thank you for using the calculator. Good bye'
+es:
+  welcome: "Bienvenido a la calculadora ! ¿Cuál es tu nombre?"
+  valid_name: 'Asegúrese de utilizar un nombre válido.'
+  first_number: "¿Cuál es el primer número ?"
+  not_valid_num: "Que no se ve como un número válido"
+  second_number: "¿Cuál es el segundo número ?"
+  operator:   "¿Qué operación desea realizar ? 1 ) añadir 2 ) restar 3 ) multiplicar 4 ) se dividen"
+  four_options: "Se debe utilizar 1 , 2 , 3 , o 4"
+
+  another_calculation: '¿Quieres realizar otro cálculo ? ( Y para sí )'
+  thanks: 'Gracias por usar la calculadora usted. Adiós'
