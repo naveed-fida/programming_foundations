@@ -1,4 +1,4 @@
-#srequire 'pry'
+#require 'pry'
 require 'yaml'
 
 MESSAGES = YAML.load_file('calculator_messages.yml')
