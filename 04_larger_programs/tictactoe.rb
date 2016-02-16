@@ -67,22 +67,20 @@ end
 
 def computer_places_piece!(brd)
   square = nil
-  
-  square = 5 if brd[5] == INITIAL_MARKER
 
-  if !square
-    WINNING_LINES.each do |line|
-      square = find_at_risk_square(line, brd, COMPUTER_MARKER)
-      break if square
-    end
+  WINNING_LINES.each do |line|
+    square = find_at_risk_square(line, brd, COMPUTER_MARKER)
+    break if square
   end
-
+    
   if !square
     WINNING_LINES.each do |line|
       square = find_at_risk_square(line, brd, PLAYER_MARKER)
       break if square
     end
   end
+
+  square = 5 if !square && brd[5] == INITIAL_MARKER
 
   if !square
     square = empty_squares(brd).sample
